@@ -48,26 +48,55 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
       return
     }
 
+    player.loop = true
+
+    let resumeRequested = false
+
+    const resumePlayback = () => {
+      player.play().finally(() => {
+        window.removeEventListener("pointerdown", resumePlayback)
+        window.removeEventListener("keydown", resumePlayback)
+        resumeRequested = false
+      })
+    }
+
+    const requestResumeOnInteraction = () => {
+      if (resumeRequested) {
+        return
+      }
+      resumeRequested = true
+      window.addEventListener("pointerdown", resumePlayback, { once: true })
+      window.addEventListener("keydown", resumePlayback, { once: true })
+    }
+
     const startPlayback = () => {
       const playPromise = player.play()
       if (playPromise && typeof playPromise.then === "function") {
-        playPromise.catch(() => {
-          // Autoplay can fail without user interaction; ignore silently.
-        })
+        playPromise.catch(requestResumeOnInteraction)
+      } else {
+        requestResumeOnInteraction()
       }
     }
-
-    player.loop = true
-    startPlayback()
 
     const handleEnded = () => {
       player.currentTime = 0
       startPlayback()
     }
 
+    const handleVisibilityChange = () => {
+      if (!document.hidden && player.paused) {
+        startPlayback()
+      }
+    }
+
+    startPlayback()
     player.addEventListener("ended", handleEnded)
+    document.addEventListener("visibilitychange", handleVisibilityChange)
 
     return () => {
+      window.removeEventListener("pointerdown", resumePlayback)
+      window.removeEventListener("keydown", resumePlayback)
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
       player.removeEventListener("ended", handleEnded)
       player.pause()
       player.currentTime = 0
