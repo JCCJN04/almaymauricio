@@ -49,54 +49,106 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
     }
 
     player.loop = true
+    player.preload = "auto"
+    player.setAttribute("playsinline", "")
 
     let resumeRequested = false
-    const interactionEvents: Array<keyof WindowEventMap> = ["pointerdown", "touchstart", "mousedown", "keydown", "click"]
+
+    const applyPlaybackPreferences = () => {
+      player.volume = 0.65
+      player.muted = false
+    }
+
+    const interactionEvents: string[] = [
+      "pointerdown",
+      "touchstart",
+      "touchend",
+      "mousedown",
+      "keydown",
+      "click",
+    ]
+
+    const interactionTargets: Array<EventTarget | null> = [window, document, document.body]
 
     const removeInteractionListeners = () => {
-      interactionEvents.forEach((eventName) => {
-        window.removeEventListener(eventName, resumePlayback)
+      interactionTargets.forEach((target) => {
+        if (!target) {
+          return
+        }
+
+        interactionEvents.forEach((eventName) => {
+          target.removeEventListener(eventName, resumePlayback as EventListener)
+        })
       })
     }
 
     const resumePlayback = () => {
-      player.play().finally(() => {
-        removeInteractionListeners()
+      const attempt = player.play()
+
+      if (attempt && typeof attempt.then === "function") {
+        attempt
+          .then(() => {
+            applyPlaybackPreferences()
+            resumeRequested = false
+            removeInteractionListeners()
+          })
+          .catch(() => {
+            resumeRequested = false
+            requestResumeOnInteraction()
+          })
+      } else {
+        applyPlaybackPreferences()
         resumeRequested = false
-      })
+        removeInteractionListeners()
+      }
     }
 
     const requestResumeOnInteraction = () => {
       if (resumeRequested) {
         return
       }
+
       resumeRequested = true
-      interactionEvents.forEach((eventName) => {
-        window.addEventListener(eventName, resumePlayback, { once: true })
+
+      interactionTargets.forEach((target) => {
+        if (!target) {
+          return
+        }
+
+        interactionEvents.forEach((eventName) => {
+          target.addEventListener(eventName, resumePlayback as EventListener, { once: true })
+        })
       })
     }
 
-    const startPlayback = () => {
+    const attemptAutoplay = () => {
       const playPromise = player.play()
+
       if (playPromise && typeof playPromise.then === "function") {
-        playPromise.catch(requestResumeOnInteraction)
+        playPromise
+          .then(() => {
+            applyPlaybackPreferences()
+          })
+          .catch(() => {
+            requestResumeOnInteraction()
+          })
       } else {
-        requestResumeOnInteraction()
+        applyPlaybackPreferences()
       }
     }
 
     const handleEnded = () => {
       player.currentTime = 0
-      startPlayback()
+      attemptAutoplay()
     }
 
     const handleVisibilityChange = () => {
       if (!document.hidden && player.paused) {
-        startPlayback()
+        attemptAutoplay()
       }
     }
 
-    startPlayback()
+    attemptAutoplay()
     player.addEventListener("ended", handleEnded)
     document.addEventListener("visibilitychange", handleVisibilityChange)
 
@@ -157,7 +209,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
         }}
       />
 
-      <audio ref={audioRef} preload="auto" loop>
+      <audio ref={audioRef} preload="auto" loop playsInline>
         <source src="/ElvisPresleyCantHelpFallingInLove.mp4" type="audio/mp4" />
       </audio>
 
