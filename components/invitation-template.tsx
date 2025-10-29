@@ -1,9 +1,8 @@
 "use client"
 
 import { useState, useEffect, useRef, useMemo } from "react"
-import { Music, MicOff as MusicOff } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 interface InvitationTemplateProps {
   guestName?: string
@@ -12,7 +11,6 @@ interface InvitationTemplateProps {
 }
 
 export function InvitationTemplate({ guestName, guestMessage, guestDetails }: InvitationTemplateProps) {
-  const [isPlaying, setIsPlaying] = useState(false)
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   const audioRef = useRef<HTMLAudioElement>(null)
 
@@ -44,35 +42,35 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
     return () => clearInterval(interval)
   }, [eventDate])
 
-  const toggleMusic = () => {
+  useEffect(() => {
     const player = audioRef.current
     if (!player) {
       return
     }
 
-    if (isPlaying) {
-      player.pause()
-      player.currentTime = 0
-      setIsPlaying(false)
-      return
+    const startPlayback = () => {
+      const playPromise = player.play()
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.catch(() => {
+          // Autoplay can fail without user interaction; ignore silently.
+        })
+      }
     }
 
-    player.currentTime = 0
-    player
-      .play()
-      .then(() => setIsPlaying(true))
-      .catch(() => {
-        setIsPlaying(false)
-      })
-  }
+    player.loop = true
+    startPlayback()
 
-  useEffect(() => {
-    const player = audioRef.current
+    const handleEnded = () => {
+      player.currentTime = 0
+      startPlayback()
+    }
+
+    player.addEventListener("ended", handleEnded)
+
     return () => {
-      if (player) {
-        player.pause()
-        player.currentTime = 0
-      }
+      player.removeEventListener("ended", handleEnded)
+      player.pause()
+      player.currentTime = 0
     }
   }, [])
 
@@ -124,21 +122,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
         }}
       />
 
-      {/* Music Toggle */}
-      <Button
-        onClick={toggleMusic}
-        aria-pressed={isPlaying}
-        className={`fixed top-6 right-6 z-50 rounded-full px-6 py-3 flex items-center gap-2 ${
-          isPlaying
-            ? "bg-invitation-accent text-invitation-surface hover:bg-invitation-accent-dark"
-            : "bg-invitation-surface/90 text-invitation-accent-dark border border-invitation-border hover:bg-invitation-surface"
-        }`}
-      >
-        {isPlaying ? <Music className="w-5 h-5" /> : <MusicOff className="w-5 h-5" />}
-        <span className="text-sm font-medium tracking-wide">{isPlaying ? "Detener música" : "Escuchar canción"}</span>
-      </Button>
-
-      <audio ref={audioRef} preload="auto">
+      <audio ref={audioRef} preload="auto" loop>
         <source src="/ElvisPresleyCantHelpFallingInLove.mp4" type="audio/mp4" />
       </audio>
 
