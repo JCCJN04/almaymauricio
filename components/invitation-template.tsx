@@ -51,11 +51,17 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
     player.loop = true
 
     let resumeRequested = false
+    const interactionEvents: Array<keyof WindowEventMap> = ["pointerdown", "touchstart", "mousedown", "keydown", "click"]
+
+    const removeInteractionListeners = () => {
+      interactionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, resumePlayback)
+      })
+    }
 
     const resumePlayback = () => {
       player.play().finally(() => {
-        window.removeEventListener("pointerdown", resumePlayback)
-        window.removeEventListener("keydown", resumePlayback)
+        removeInteractionListeners()
         resumeRequested = false
       })
     }
@@ -65,8 +71,9 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
         return
       }
       resumeRequested = true
-      window.addEventListener("pointerdown", resumePlayback, { once: true })
-      window.addEventListener("keydown", resumePlayback, { once: true })
+      interactionEvents.forEach((eventName) => {
+        window.addEventListener(eventName, resumePlayback, { once: true })
+      })
     }
 
     const startPlayback = () => {
@@ -94,8 +101,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
     document.addEventListener("visibilitychange", handleVisibilityChange)
 
     return () => {
-      window.removeEventListener("pointerdown", resumePlayback)
-      window.removeEventListener("keydown", resumePlayback)
+      removeInteractionListeners()
       document.removeEventListener("visibilitychange", handleVisibilityChange)
       player.removeEventListener("ended", handleEnded)
       player.pause()
