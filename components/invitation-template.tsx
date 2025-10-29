@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect, useMemo, useId } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -8,6 +8,137 @@ interface InvitationTemplateProps {
   guestName?: string
   guestMessage?: string
   guestDetails?: string[]
+}
+
+type IconProps = {
+  className?: string
+}
+
+function OrnateCrossIcon({ className }: IconProps) {
+  const uniqueId = useId()
+  const gradientId = `${uniqueId}-cross-gradient`
+  const glowId = `${uniqueId}-cross-glow`
+  const haloId = `${uniqueId}-cross-halo`
+
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      role="img"
+      aria-hidden="true"
+      className={className ? `${className} shrink-0` : "shrink-0"}
+    >
+      <defs>
+        <radialGradient id={glowId} cx="32" cy="32" r="28" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#f8f0e4" stopOpacity="0.95" />
+          <stop offset="60%" stopColor="#f0dcc0" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#e0c19a" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id={gradientId} x1="18" y1="16" x2="46" y2="48" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#fef6e8" />
+          <stop offset="45%" stopColor="#f3d9ad" />
+          <stop offset="100%" stopColor="#caa777" />
+        </linearGradient>
+        <linearGradient id={haloId} x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#fff7ec" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#d9b58c" stopOpacity="0.45" />
+        </linearGradient>
+      </defs>
+      <circle cx="32" cy="32" r="29" fill={`url(#${glowId})`} />
+      <circle cx="32" cy="32" r="30" stroke={`url(#${haloId})`} strokeWidth="1.6" fill="none" />
+      <path
+        d="M32 12v40"
+        stroke={`url(#${gradientId})`}
+        strokeWidth="5.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20 26h24"
+        stroke={`url(#${gradientId})`}
+        strokeWidth="5.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M26 26v-8c0-1.6 1.3-2.9 2.9-2.9h6.2c1.6 0 2.9 1.3 2.9 2.9v8"
+        stroke={`url(#${gradientId})`}
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.85"
+      />
+    </svg>
+  )
+}
+
+function RadiantBloomIcon({ className }: IconProps) {
+  const uniqueId = useId()
+  const petalId = `${uniqueId}-bloom-petal`
+  const centerId = `${uniqueId}-bloom-center`
+
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      role="img"
+      aria-hidden="true"
+      className={className ? `${className} shrink-0` : "shrink-0"}
+    >
+      <defs>
+        <radialGradient id={petalId} cx="32" cy="32" r="28" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#fff1ea" stopOpacity="0.9" />
+          <stop offset="45%" stopColor="#f8d5c6" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#e6b2a3" stopOpacity="0.1" />
+        </radialGradient>
+        <radialGradient id={centerId} cx="32" cy="32" r="12" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#ffe7d4" />
+          <stop offset="60%" stopColor="#f2c4a9" />
+          <stop offset="100%" stopColor="#d1a187" />
+        </radialGradient>
+      </defs>
+      <circle cx="32" cy="32" r="26" fill={`url(#${petalId})`} />
+      <path
+        d="M32 16c-5.8 0-10.5 4.7-10.5 10.5 0 2.6 0.9 4.9 2.5 6.8C20 33 16 35.8 16 40.6 16 46 20.4 50 25.8 50c2.7 0 5.1-1 6.9-2.7 1.8 1.7 4.2 2.7 6.9 2.7C44 50 48 46 48 40.6c0-4.8-4-7.6-8-7.3 1.6-1.9 2.5-4.2 2.5-6.8C42.5 20.7 37.8 16 32 16Z"
+        fill={`url(#${petalId})`}
+        opacity="0.9"
+      />
+      <circle cx="32" cy="32" r="7.8" fill={`url(#${centerId})`} />
+      <path
+        d="M32 24v16"
+        stroke="#f5d1b5"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.65"
+      />
+      <path
+        d="M24 32h16"
+        stroke="#f5d1b5"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.65"
+      />
+    </svg>
+  )
+}
+
+const PARENT_MEMBER_ICONS = {
+  cross: OrnateCrossIcon,
+  blossom: RadiantBloomIcon,
+} as const
+
+type ParentIconVariant = keyof typeof PARENT_MEMBER_ICONS
+
+interface ParentMember {
+  name: string
+  note?: string
+  icon: ParentIconVariant
+}
+
+interface ParentGroup {
+  title: string
+  dedication: string
+  gradient: string
+  members: ParentMember[]
 }
 
 export function InvitationTemplate({ guestName, guestMessage, guestDetails }: InvitationTemplateProps) {
@@ -45,14 +176,14 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
     ? guestMessage
     : "Es un honor contar con su presencia en nuestro gran día. Agradecemos confirmar su asistencia.";
   const detailLines = (guestDetails ?? []).map((item) => item.trim()).filter(Boolean)
-  const parentsGroups = [
+  const parentsGroups: ParentGroup[] = [
     {
       title: "Papás del Novio",
       dedication: "Con amor eterno en nuestra memoria.",
       gradient: "from-invitation-accent/18 via-invitation-surface/96 to-invitation-surface",
       members: [
-        { name: "Ricardo Parra Quiriz", symbol: "✝", note: "En memoria" },
-        { name: "María Elena Hernández Molina", symbol: "♠", note: "Guía amorosa" },
+        { name: "Ricardo Parra Quiriz", icon: "cross", note: "En memoria" },
+        { name: "María Elena Hernández Molina", icon: "blossom", note: "Guía amorosa" },
       ],
     },
     {
@@ -60,8 +191,8 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
       dedication: "Siempre presentes en nuestro corazón.",
       gradient: "from-invitation-accent/18 via-invitation-surface/96 to-invitation-surface",
       members: [
-        { name: "Juan González Morales", symbol: "✝", note: "En memoria" },
-        { name: "María Bertha Plata Jalomo", symbol: "✝", note: "En memoria" },
+        { name: "Juan González Morales", icon: "cross", note: "En memoria" },
+        { name: "María Bertha Plata Jalomo", icon: "cross", note: "En memoria" },
       ],
     },
   ]
@@ -243,12 +374,20 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                       {group.dedication}
                     </p>
                     <ul className="mt-6 space-y-4">
-                      {group.members.map((member) => (
-                        <li key={member.name} className="flex items-center justify-between gap-4 font-body text-invitation-text">
+                      {group.members.map((member) => {
+                        const IconComponent = PARENT_MEMBER_ICONS[member.icon]
+                        return (
+                          <li
+                            key={member.name}
+                            className="flex items-center justify-between gap-4 font-body text-invitation-text"
+                          >
                           <div className="flex items-center gap-3">
-                            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-invitation-accent/20 border border-invitation-accent/40 text-invitation-accent-dark text-base" aria-hidden="true">
-                              {member.symbol}
-                            </span>
+                              <span
+                                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-invitation-accent/35 bg-invitation-accent/15 shadow-[0_4px_14px_rgba(53,37,16,0.12)]"
+                                aria-hidden="true"
+                              >
+                                <IconComponent className="h-5 w-5" />
+                              </span>
                             <span className="text-lg">{member.name}</span>
                           </div>
                           {member.note && (
@@ -256,8 +395,9 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                               {member.note}
                             </span>
                           )}
-                        </li>
-                      ))}
+                          </li>
+                        )
+                      })}
                     </ul>
                   </div>
                 </Card>
@@ -367,7 +507,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             <Card className="p-4 md:p-6 bg-invitation-surface border-invitation-border shadow-invitation">
               <div className="relative -mx-4 sm:-mx-8 md:mx-auto md:max-w-2xl">
                 <img
-                  src="/itinerario-boda-alma-y-mauricio.png"
+                  src="/itinerario.png"
                   alt="Itinerario del gran día de Alma Nelly y Mauricio"
                   className="w-full h-auto rounded-[1.75rem] shadow-[0_18px_42px_rgba(24,24,24,0.08)] md:scale-100 scale-[1.18] origin-top transition-transform duration-500"
                 />
