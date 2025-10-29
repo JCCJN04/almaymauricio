@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef, useMemo } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -12,7 +12,6 @@ interface InvitationTemplateProps {
 
 export function InvitationTemplate({ guestName, guestMessage, guestDetails }: InvitationTemplateProps) {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-  const audioRef = useRef<HTMLAudioElement>(null)
 
   // Fecha del evento - PERSONALIZAR AQUÍ
   const eventDate = useMemo(() => new Date("2025-12-20T17:00:00-06:00"), [])
@@ -41,73 +40,6 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
 
     return () => clearInterval(interval)
   }, [eventDate])
-
-  useEffect(() => {
-    const player = audioRef.current
-    if (!player) {
-      return
-    }
-
-    player.loop = true
-
-    let resumeRequested = false
-    const interactionEvents: Array<keyof WindowEventMap> = ["pointerdown", "touchstart", "mousedown", "keydown", "click"]
-
-    const removeInteractionListeners = () => {
-      interactionEvents.forEach((eventName) => {
-        window.removeEventListener(eventName, resumePlayback)
-      })
-    }
-
-    const resumePlayback = () => {
-      player.play().finally(() => {
-        removeInteractionListeners()
-        resumeRequested = false
-      })
-    }
-
-    const requestResumeOnInteraction = () => {
-      if (resumeRequested) {
-        return
-      }
-      resumeRequested = true
-      interactionEvents.forEach((eventName) => {
-        window.addEventListener(eventName, resumePlayback, { once: true })
-      })
-    }
-
-    const startPlayback = () => {
-      const playPromise = player.play()
-      if (playPromise && typeof playPromise.then === "function") {
-        playPromise.catch(requestResumeOnInteraction)
-      } else {
-        requestResumeOnInteraction()
-      }
-    }
-
-    const handleEnded = () => {
-      player.currentTime = 0
-      startPlayback()
-    }
-
-    const handleVisibilityChange = () => {
-      if (!document.hidden && player.paused) {
-        startPlayback()
-      }
-    }
-
-    startPlayback()
-    player.addEventListener("ended", handleEnded)
-    document.addEventListener("visibilitychange", handleVisibilityChange)
-
-    return () => {
-      removeInteractionListeners()
-      document.removeEventListener("visibilitychange", handleVisibilityChange)
-      player.removeEventListener("ended", handleEnded)
-      player.pause()
-      player.currentTime = 0
-    }
-  }, [])
 
   const personalizedNote = guestMessage?.trim().length
     ? guestMessage
@@ -156,10 +88,6 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
           backgroundPosition: "0 0, 45px 45px",
         }}
       />
-
-      <audio ref={audioRef} preload="auto" loop>
-        <source src="/ElvisPresleyCantHelpFallingInLove.mp4" type="audio/mp4" />
-      </audio>
 
       {/* Hero Section */}
       <header className="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-invitation-border">
