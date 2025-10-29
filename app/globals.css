@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Custom invitation theme with warm, elegant colors */
+:root {
+  /* Invitation Color Palette - Warm & Elegant */
+  --invitation-bg: #f8f3ec;
+  --invitation-surface: #fffaf5;
+  --invitation-surface-alt: #f3e8dc;
+  --invitation-text: #2f1e15;
+  --invitation-muted: #6d5541;
+  --invitation-accent: #b99365;
+  --invitation-accent-dark: #95724b;
+  --invitation-border: rgba(149, 114, 75, 0.25);
+
+  /* Base theme colors */
+  --background: #f8f3ec;
+  --foreground: #2f1e15;
+  --card: #fffaf5;
+  --card-foreground: #2f1e15;
+  --popover: #fffaf5;
+  --popover-foreground: #2f1e15;
+  --primary: #b99365;
+  --primary-foreground: #fffaf5;
+  --secondary: #f3e8dc;
+  --secondary-foreground: #2f1e15;
+  --muted: #f3e8dc;
+  --muted-foreground: #6d5541;
+  --accent: #f3e8dc;
+  --accent-foreground: #2f1e15;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: rgba(149, 114, 75, 0.25);
+  --input: rgba(149, 114, 75, 0.25);
+  --ring: #b99365;
+  --chart-1: #b99365;
+  --chart-2: #95724b;
+  --chart-3: #6d5541;
+  --chart-4: #f3e8dc;
+  --chart-5: #fffaf5;
+  --radius: 1.125rem;
+  --sidebar: #fffaf5;
+  --sidebar-foreground: #2f1e15;
+  --sidebar-primary: #b99365;
+  --sidebar-primary-foreground: #fffaf5;
+  --sidebar-accent: #f3e8dc;
+  --sidebar-accent-foreground: #2f1e15;
+  --sidebar-border: rgba(149, 114, 75, 0.25);
+  --sidebar-ring: #b99365;
+}
+
+.dark {
+  --invitation-bg: #1a1410;
+  --invitation-surface: #2f1e15;
+  --invitation-surface-alt: #3d2a1f;
+  --invitation-text: #f8f3ec;
+  --invitation-muted: #b99365;
+  --invitation-accent: #d4a574;
+  --invitation-accent-dark: #b99365;
+  --invitation-border: rgba(185, 147, 101, 0.3);
+
+  --background: #1a1410;
+  --foreground: #f8f3ec;
+  --card: #2f1e15;
+  --card-foreground: #f8f3ec;
+  --popover: #2f1e15;
+  --popover-foreground: #f8f3ec;
+  --primary: #d4a574;
+  --primary-foreground: #1a1410;
+  --secondary: #3d2a1f;
+  --secondary-foreground: #f8f3ec;
+  --muted: #3d2a1f;
+  --muted-foreground: #b99365;
+  --accent: #3d2a1f;
+  --accent-foreground: #f8f3ec;
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: rgba(185, 147, 101, 0.3);
+  --input: rgba(185, 147, 101, 0.3);
+  --ring: #d4a574;
+  --chart-1: #d4a574;
+  --chart-2: #b99365;
+  --chart-3: #95724b;
+  --chart-4: #3d2a1f;
+  --chart-5: #2f1e15;
+  --sidebar: #2f1e15;
+  --sidebar-foreground: #f8f3ec;
+  --sidebar-primary: #d4a574;
+  --sidebar-primary-foreground: #1a1410;
+  --sidebar-accent: #3d2a1f;
+  --sidebar-accent-foreground: #f8f3ec;
+  --sidebar-border: rgba(185, 147, 101, 0.3);
+  --sidebar-ring: #d4a574;
+}
+
+@theme inline {
+  /* Adding elegant serif and body fonts for invitations */
+  --font-sans: "Raleway", "Geist", "Geist Fallback", sans-serif;
+  --font-serif: "Cinzel", "Georgia", serif;
+  --font-body: "Lora", "Georgia", serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
+
+  /* Invitation-specific colors */
+  --color-invitation-bg: var(--invitation-bg);
+  --color-invitation-surface: var(--invitation-surface);
+  --color-invitation-surface-alt: var(--invitation-surface-alt);
+  --color-invitation-text: var(--invitation-text);
+  --color-invitation-muted: var(--invitation-muted);
+  --color-invitation-accent: var(--invitation-accent);
+  --color-invitation-accent-dark: var(--invitation-accent-dark);
+  --color-invitation-border: var(--invitation-border);
+
+  /* Base colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom shadow for invitation cards */
+  --shadow-invitation: 0 10px 30px rgba(47, 30, 21, 0.12);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Adding custom font classes */
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Custom shadow utility */
+  .shadow-invitation {
+    box-shadow: var(--shadow-invitation);
+  }
+}
+
+/* Custom animations for invitation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
