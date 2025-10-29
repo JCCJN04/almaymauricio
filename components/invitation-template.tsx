@@ -41,6 +41,128 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
     return () => clearInterval(interval)
   }, [eventDate])
 
+<<<<<<< HEAD
+=======
+  useEffect(() => {
+    const player = audioRef.current
+    if (!player) {
+      return
+    }
+
+    player.loop = true
+    player.preload = "auto"
+    player.setAttribute("playsinline", "")
+
+    let resumeRequested = false
+
+    const applyPlaybackPreferences = () => {
+      player.volume = 0.65
+      player.muted = false
+    }
+
+    const interactionEvents: string[] = [
+      "pointerdown",
+      "touchstart",
+      "touchend",
+      "mousedown",
+      "keydown",
+      "click",
+    ]
+
+    const interactionTargets: Array<EventTarget | null> = [window, document, document.body]
+
+    const removeInteractionListeners = () => {
+      interactionTargets.forEach((target) => {
+        if (!target) {
+          return
+        }
+
+        interactionEvents.forEach((eventName) => {
+          target.removeEventListener(eventName, resumePlayback as EventListener)
+        })
+      })
+    }
+
+    const resumePlayback = () => {
+      const attempt = player.play()
+
+      if (attempt && typeof attempt.then === "function") {
+        attempt
+          .then(() => {
+            applyPlaybackPreferences()
+            resumeRequested = false
+            removeInteractionListeners()
+          })
+          .catch(() => {
+            resumeRequested = false
+            requestResumeOnInteraction()
+          })
+      } else {
+        applyPlaybackPreferences()
+        resumeRequested = false
+        removeInteractionListeners()
+      }
+    }
+
+    const requestResumeOnInteraction = () => {
+      if (resumeRequested) {
+        return
+      }
+
+      resumeRequested = true
+
+      interactionTargets.forEach((target) => {
+        if (!target) {
+          return
+        }
+
+        interactionEvents.forEach((eventName) => {
+          target.addEventListener(eventName, resumePlayback as EventListener, { once: true })
+        })
+      })
+    }
+
+    const attemptAutoplay = () => {
+      const playPromise = player.play()
+
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise
+          .then(() => {
+            applyPlaybackPreferences()
+          })
+          .catch(() => {
+            requestResumeOnInteraction()
+          })
+      } else {
+        applyPlaybackPreferences()
+      }
+    }
+
+    const handleEnded = () => {
+      player.currentTime = 0
+      attemptAutoplay()
+    }
+
+    const handleVisibilityChange = () => {
+      if (!document.hidden && player.paused) {
+        attemptAutoplay()
+      }
+    }
+
+    attemptAutoplay()
+    player.addEventListener("ended", handleEnded)
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+
+    return () => {
+      removeInteractionListeners()
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
+      player.removeEventListener("ended", handleEnded)
+      player.pause()
+      player.currentTime = 0
+    }
+  }, [])
+
+>>>>>>> 26425ad605ec35c61f59a07fb8f7cfd6c9e450e8
   const personalizedNote = guestMessage?.trim().length
     ? guestMessage
     : "Es un honor contar con su presencia en nuestro gran día. Agradecemos confirmar su asistencia.";
@@ -89,6 +211,13 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
         }}
       />
 
+<<<<<<< HEAD
+=======
+      <audio ref={audioRef} preload="auto" loop playsInline>
+        <source src="/ElvisPresleyCantHelpFallingInLove.mp4" type="audio/mp4" />
+      </audio>
+
+>>>>>>> 26425ad605ec35c61f59a07fb8f7cfd6c9e450e8
       {/* Hero Section */}
       <header className="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-invitation-border">
         {/* Background Image */}
