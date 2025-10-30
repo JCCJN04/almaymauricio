@@ -145,7 +145,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
   // Fecha del evento - PERSONALIZAR AQUÍ
-  const eventDate = useMemo(() => new Date("2025-12-20T17:00:00-06:00"), [])
+  const eventDate = useMemo(() => new Date("2025-11-22T17:00:00-06:00"), [])
 
   useEffect(() => {
     const updateCountdown = () => {
