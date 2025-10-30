@@ -443,6 +443,13 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             </h2>
 
             <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation text-center">
+              <div className="mb-6 overflow-hidden rounded-3xl border border-invitation-border/50 shadow-[0_18px_42px_rgba(24,24,24,0.12)]">
+                <img
+                  src="/iglesia.jpg"
+                  alt="Capilla San Miguel Arcángel y su ubicación"
+                  className="w-full h-56 md:h-64 object-cover"
+                />
+              </div>
               <h3 className="font-body text-2xl mb-4 text-invitation-text">Capilla San Miguel Arcángel</h3>
               <p className="font-body text-lg text-invitation-accent-dark mb-4">5:00 PM</p>
               <address className="font-body text-invitation-muted not-italic mb-8">
@@ -472,9 +479,16 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             </h2>
 
             <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation text-center">
+              <div className="mb-6 overflow-hidden rounded-3xl border border-invitation-border/50 shadow-[0_18px_42px_rgba(24,24,24,0.12)]">
+                <img
+                  src="/salondeeventos.png"
+                  alt="Campanario Eventos y su ubicación"
+                  className="w-full h-56 md:h-64 object-cover"
+                />
+              </div>
               <h3 className="font-body text-2xl mb-4 text-invitation-text">Campanario Eventos</h3>
               <p className="font-body text-lg text-invitation-accent-dark mb-4">
-                Seguimos celebrando después de la ceremonia
+                7:30 PM
               </p>
               <address className="font-body text-invitation-muted not-italic mb-8">
                 Blvd Julian Treviño Elizondo 300, El Milagro, 66634 Cdad. Apodaca, N.L., México
@@ -650,48 +664,12 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed">
                   Deseamos crear un ambiente elegante y lleno de estilo. Tu presencia hará que la celebración sea inolvidable.
                 </p>
-                <div className="grid md:grid-cols-2 gap-6 text-left md:text-center">
-                  <div className="p-6 rounded-2xl border border-invitation-border/70 bg-invitation-surface/70">
-                    <h3 className="font-serif text-xl uppercase tracking-[0.28em] text-invitation-text mb-3">Mujeres</h3>
-                    <p className="font-body text-base text-invitation-muted">Vestido largo con detalles elegantes.</p>
-                  </div>
-                  <div className="p-6 rounded-2xl border border-invitation-border/70 bg-invitation-surface/70">
-                    <h3 className="font-serif text-xl uppercase tracking-[0.28em] text-invitation-text mb-3">Hombres</h3>
-                    <p className="font-body text-base text-invitation-muted">Traje y corbata en tonos formales.</p>
-                  </div>
-                </div>
               </div>
             </Card>
           </div>
         </section>
 
-        {/* Gratitude Section */}
-        <section className="py-16 px-6">
-          <div className="max-w-3xl mx-auto">
-            <Card className="relative overflow-hidden p-12 bg-gradient-to-b from-invitation-surface to-invitation-surface/92 border border-invitation-border shadow-invitation text-center">
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_bottom,rgba(149,114,75,0.5),transparent_60%)]" />
-              <div className="relative z-10">
-                <div className="flex items-center justify-center gap-4 mb-6">
-                  <span className="w-10 h-px bg-invitation-accent/50" />
-                  <span className="font-body text-xs uppercase tracking-[0.38em] text-invitation-accent-dark">
-                    Gratitud infinita
-                  </span>
-                  <span className="w-10 h-px bg-invitation-accent/50" />
-                </div>
-                <p className="font-body text-xl md:text-2xl text-invitation-muted italic mb-6">
-                  "Que el amor que hoy celebramos se multiplique en cada uno de sus hogares. Gracias por acompañarnos."
-                </p>
-                <cite className="font-body text-sm uppercase tracking-[0.18em] text-invitation-accent-dark not-italic block">
-                  Filipenses 1:3 - "Doy gracias a mi Dios cada vez que me acuerdo de ustedes."
-                </cite>
-                <p className="font-body text-sm text-invitation-muted/80 mt-5">
-                  Nos sentimos bendecidos por su cariño, por las oraciones compartidas y por la alegría de caminar juntos
-                  esta nueva etapa.
-                </p>
-              </div>
-            </Card>
-          </div>
-        </section>
+        
       </main>
 
       {/* Footer */}
