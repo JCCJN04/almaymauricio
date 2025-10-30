@@ -651,7 +651,8 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             </h2>
             <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation">
               <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed">
-                Agradecemos que completes el formulario para confirmar tu presencia y ayudarnos con la organización del gran día.
+                ¡Queremos vivir este momento tan especial contigo!
+Por favor, confirma tu asistencia antes del 6 de octubre de 2025 para ayudarnos con los preparativos.
               </p>
               <div className="mt-8 w-full">
                 <div className="relative w-full overflow-hidden rounded-[1.75rem] border border-invitation-border shadow-[0_18px_42px_rgba(24,24,24,0.12)]">
