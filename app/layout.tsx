@@ -25,8 +25,8 @@ const raleway = Raleway({
 })
 
 export const metadata: Metadata = {
-  title: "Invitación Digital Elegante",
-  description: "Invitación digital personalizada para eventos especiales",
+  title: "Alma y Mauricio - Invitación de boda",
+  description: "Invitación boda ALMA Y MAURICIO",
   generator: "v0.app",
 }
 
