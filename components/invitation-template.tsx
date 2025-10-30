@@ -406,6 +406,48 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
           </div>
         </section>
 
+        {/* Unity Reflection Section */}
+        <section className="py-16 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-[1.05fr,0.95fr] gap-10 items-stretch">
+              <Card className="relative overflow-hidden p-10 bg-gradient-to-br from-invitation-accent/14 via-invitation-surface to-invitation-surface border border-invitation-accent/30 shadow-invitation">
+                <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,rgba(185,147,101,0.4),transparent_65%)]" />
+                <div className="relative z-10 flex h-full flex-col justify-center text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <span className="w-16 h-px bg-invitation-accent/50" />
+                    <span className="font-body text-xs uppercase tracking-[0.4em] text-invitation-accent-dark">
+                      Cordón de tres hilos
+                    </span>
+                    <span className="w-16 h-px bg-invitation-accent/50" />
+                  </div>
+                  <blockquote className="font-body text-xl md:text-2xl text-invitation-muted italic leading-relaxed mb-6">
+                    “Uno solo puede ser vencido, pero dos juntos pueden resistir. Y el cordón de tres hilos no se rompe fácilmente.”
+                  </blockquote>
+                  <p className="font-body text-sm uppercase tracking-[0.24em] text-invitation-accent-dark">
+                    Eclesiastés 4:12
+                  </p>
+                </div>
+              </Card>
+              <div className="grid gap-6">
+                <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+                  <img
+                    src="/casados2.jpg"
+                    alt="Alma y Mauricio compartiendo una sonrisa llena de alegría"
+                    className="w-full h-[420px] md:h-[540px] object-cover object-center transition-transform duration-500 hover:scale-105"
+                  />
+                </figure>
+                <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+                  <img
+                    src="/casados3.jpg"
+                    alt="Alma y Mauricio tomados de la mano en un paseo sereno"
+                    className="w-full h-[240px] md:h-[260px] object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Bible Verse Section */}
         <section className="py-16 px-6">
           <div className="max-w-3xl mx-auto">
@@ -432,6 +474,22 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 </p>
               </div>
             </Card>
+            <div className="mt-10 grid md:grid-cols-2 gap-6">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+                <img
+                  src="/casados4.jpg"
+                  alt="Alma y Mauricio abrazados celebrando su unión"
+                  className="w-full h-[260px] md:h-[280px] object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </figure>
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+                <img
+                  src="/casados5.jpg"
+                  alt="Alma y Mauricio compartiendo un momento íntimo"
+                  className="w-full h-[260px] md:h-[280px] object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </figure>
+            </div>
           </div>
         </section>
 
@@ -546,52 +604,8 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             <div className="grid gap-6 md:grid-cols-2">
               <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
                 <img
-                  src="/casados2.jpg"
-                  alt="Alma y Mauricio sonriendo juntos"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
-                  Día tras día, aprendimos que el amor se construye con detalles que iluminan el corazón.
-                </figcaption>
-              </figure>
-
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
-                <img
-                  src="/casados3.jpg"
-                  alt="Alma y Mauricio tomados de la mano en un paseo"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
-                  Compartimos caminos, sueños y promesas que hoy celebramos con quienes amamos.
-                </figcaption>
-              </figure>
-
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2">
-                <img
-                  src="/casados4.jpg"
-                  alt="Alma y Mauricio abrazándose"
-                  className="w-full h-[340px] md:h-[420px] object-cover transition-transform duration-500 hover:scale-105"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-8 py-6 text-white font-body text-base leading-relaxed">
-                  "El amor es paciente, es bondadoso" — cada abrazo nos recuerda que Dios guía nuestro camino.
-                </figcaption>
-              </figure>
-
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
-                <img
-                  src="/casados5.jpg"
-                  alt="Alma y Mauricio en un momento íntimo"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
-                  Sabemos que este vínculo se sostiene con fe, respeto y alegría compartida.
-                </figcaption>
-              </figure>
-
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
-                <img
                   src="/casados6.jpg"
-                  alt="Alma y Mauricio celebrando"
+                  alt="Alma y Mauricio celebrando con alegría"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
@@ -599,50 +613,87 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 </figcaption>
               </figure>
 
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2">
-                <img
-                  src="/casados7.jpg"
-                  alt="Alma y Mauricio caminando hacia la luz"
-                  className="w-full h-[320px] md:h-[400px] object-cover transition-transform duration-500 hover:scale-105"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/45 to-transparent px-8 py-6 text-white font-body text-base leading-relaxed">
-                  Caminamos de la mano hacia el futuro, sabiendo que cada paso está guiado por la gracia de Dios.
-                </figcaption>
-              </figure>
-
               <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
                 <img
-                  src="/casados8.jpg"
-                  alt="Alma y Mauricio compartiendo una sonrisa"
+                  src="/casados7.jpg"
+                  alt="Alma y Mauricio caminando hacia un nuevo comienzo"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
-                  Sonrisas que nacen del alma y se convierten en recuerdos eternos.
+                  Caminamos de la mano hacia el futuro, guiados por la gracia y la esperanza que compartimos.
+                </figcaption>
+              </figure>
+
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2">
+                <img
+                  src="/casados8.jpg"
+                  alt="Alma y Mauricio compartiendo una sonrisa sincera"
+                  className="w-full h-[340px] md:h-[420px] object-cover transition-transform duration-500 hover:scale-105"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/45 to-transparent px-8 py-6 text-white font-body text-base leading-relaxed">
+                  Sonrisas que nacen del alma y se convierten en recuerdos eternos que alimentan nuestra historia.
                 </figcaption>
               </figure>
 
               <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
                 <img
                   src="/casados9.jpg"
-                  alt="Alma y Mauricio disfrutando de un atardecer"
+                  alt="Alma y Mauricio disfrutando de un atardecer juntos"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
-                  Entre atardeceres y promesas, agradecemos el amor que nos sostiene.
+                  Entre atardeceres y promesas, agradecemos el amor que nos sostiene día tras día.
                 </figcaption>
               </figure>
 
               <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2">
                 <img
                   src="/casados10.jpg"
-                  alt="Alma y Mauricio celebrando su compromiso"
+                  alt="Alma y Mauricio celebrando su compromiso con familiares y amigos"
                   className="w-full h-[320px] md:h-[400px] object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-8 py-6 text-white font-body text-base leading-relaxed">
-                  Hoy celebramos rodeados de quienes amamos, agradecidos por este amor que florece en cada nuevo comienzo.
+                  Rodeados de quienes amamos, celebramos un amor que florece en cada nuevo comienzo.
                 </figcaption>
               </figure>
             </div>
+          </div>
+        </section>
+
+        {/* RSVP Section */}
+        <section className="py-16 px-6 bg-invitation-surface/70">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-[0.3em] text-invitation-text mb-8">
+              Confirma tu asistencia
+            </h2>
+            <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation">
+              <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed">
+                Agradecemos que completes el formulario para confirmar tu presencia y ayudarnos con la organización del gran día.
+              </p>
+              <div className="mt-8 w-full">
+                <div className="relative w-full overflow-hidden rounded-[1.75rem] border border-invitation-border shadow-[0_18px_42px_rgba(24,24,24,0.12)]">
+                  <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSd8fFHEvViweRJXrWuPb158vZ7_z2DSDX9zTN9i0THMcc85Kg/viewform?embedded=true"
+                    title="Confirmación de asistencia"
+                    className="w-full h-[1288px]"
+                    allow="camera; microphone; geolocation"
+                  >
+                    Cargando…
+                  </iframe>
+                </div>
+                <p className="font-body text-sm text-invitation-muted mt-4">
+                  Si prefieres abrirlo en una nueva ventana, puedes hacerlo
+                  <a
+                    className="text-invitation-accent hover:underline ml-1"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSd8fFHEvViweRJXrWuPb158vZ7_z2DSDX9zTN9i0THMcc85Kg/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    aquí.
+                  </a>
+                </p>
+              </div>
+            </Card>
           </div>
         </section>
 
@@ -658,7 +709,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                   <img
                     src="/vestimenta.jpeg"
                     alt="Propuesta de vestimenta elegante para la boda de Alma y Mauricio"
-                    className="w-full h-[260px] md:h-auto md:max-h-[420px] object-cover md:object-contain md:object-center"
+                    className="w-full h-[360px] md:h-[520px] max-h-[720px] object-contain object-center"
                   />
                 </div>
                 <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed">
