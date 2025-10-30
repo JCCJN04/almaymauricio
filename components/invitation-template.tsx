@@ -410,24 +410,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
         <section className="py-16 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-[1.05fr,0.95fr] gap-10 items-stretch">
-              <Card className="relative overflow-hidden p-10 bg-gradient-to-br from-invitation-accent/14 via-invitation-surface to-invitation-surface border border-invitation-accent/30 shadow-invitation">
-                <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,rgba(185,147,101,0.4),transparent_65%)]" />
-                <div className="relative z-10 flex h-full flex-col justify-center text-center">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <span className="w-16 h-px bg-invitation-accent/50" />
-                    <span className="font-body text-xs uppercase tracking-[0.4em] text-invitation-accent-dark">
-                      Cordón de tres hilos
-                    </span>
-                    <span className="w-16 h-px bg-invitation-accent/50" />
-                  </div>
-                  <blockquote className="font-body text-xl md:text-2xl text-invitation-muted italic leading-relaxed mb-6">
-                    “Uno solo puede ser vencido, pero dos juntos pueden resistir. Y el cordón de tres hilos no se rompe fácilmente.”
-                  </blockquote>
-                  <p className="font-body text-sm uppercase tracking-[0.24em] text-invitation-accent-dark">
-                    Eclesiastés 4:12
-                  </p>
-                </div>
-              </Card>
+              
               <div className="grid gap-6">
                 <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
                   <img
