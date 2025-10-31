@@ -577,7 +577,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 />
               </div>
               <h3 className="font-body text-2xl mb-4 text-invitation-text">Capilla San Miguel Arcángel</h3>
-              <p className="font-body text-lg text-invitation-accent-dark mb-4">5:00 PM</p>
+              <p className="font-body text-3xl md:text-4xl text-invitation-accent-dark mb-4 font-semibold">5:00 PM</p>
               <address className="font-body text-invitation-muted not-italic mb-8">
                 C. Zuazua 314, San Miguel, Cdad. Apodaca, N.L., 66649
               </address>
@@ -613,7 +613,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 />
               </div>
               <h3 className="font-body text-2xl mb-4 text-invitation-text">Campanario Eventos</h3>
-              <p className="font-body text-lg text-invitation-accent-dark mb-4">
+              <p className="font-body text-3xl md:text-4xl text-invitation-accent-dark mb-4 font-semibold">
                 7:30 PM
               </p>
               <address className="font-body text-invitation-muted not-italic mb-8">
