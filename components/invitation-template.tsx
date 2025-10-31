@@ -497,24 +497,21 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
         {/* Unity Reflection Section */}
         <section className="py-16 px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-[1.05fr,0.95fr] gap-10 items-stretch">
-              
-              <div className="grid gap-6">
-                <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
-                  <img
-                    src="/casados2.jpg"
-                    alt="Alma y Mauricio compartiendo una sonrisa llena de alegría"
-                    className="w-full h-[420px] md:h-[540px] object-cover object-center transition-transform duration-500 hover:scale-105"
-                  />
-                </figure>
-                <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
-                  <img
-                    src="/casados3.jpg"
-                    alt="Alma y Mauricio tomados de la mano en un paseo sereno"
-                    className="w-full h-[240px] md:h-[260px] object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </figure>
-              </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+                <img
+                  src="/casados2.jpg"
+                  alt="Alma y Mauricio compartiendo una sonrisa llena de alegría"
+                  className="w-full h-[420px] md:h-[540px] object-cover object-center transition-transform duration-500 hover:scale-105"
+                />
+              </figure>
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+                <img
+                  src="/casados3.jpg"
+                  alt="Alma y Mauricio tomados de la mano en un paseo sereno"
+                  className="w-full h-[420px] md:h-[540px] object-cover object-center transition-transform duration-500 hover:scale-105"
+                />
+              </figure>
             </div>
           </div>
         </section>
@@ -572,11 +569,11 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             </h2>
 
             <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation text-center">
-              <div className="mb-6 overflow-hidden rounded-3xl border border-invitation-border/50 shadow-[0_18px_42px_rgba(24,24,24,0.12)]">
+              <div className="mb-6 overflow-hidden rounded-3xl border border-invitation-border/50 shadow-[0_18px_42px_rgba(24,24,24,0.12)] bg-invitation-bg/30">
                 <img
                   src="/iglesia.jpg"
                   alt="Capilla San Miguel Arcángel y su ubicación"
-                  className="w-full h-56 md:h-64 object-cover"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               <h3 className="font-body text-2xl mb-4 text-invitation-text">Capilla San Miguel Arcángel</h3>
@@ -608,11 +605,11 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             </h2>
 
             <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation text-center">
-              <div className="mb-6 overflow-hidden rounded-3xl border border-invitation-border/50 shadow-[0_18px_42px_rgba(24,24,24,0.12)]">
+              <div className="mb-6 overflow-hidden rounded-3xl border border-invitation-border/50 shadow-[0_18px_42px_rgba(24,24,24,0.12)] bg-invitation-bg/30">
                 <img
                   src="/salondeeventos.png"
                   alt="Campanario Eventos y su ubicación"
-                  className="w-full h-56 md:h-64 object-cover"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               <h3 className="font-body text-2xl mb-4 text-invitation-text">Campanario Eventos</h3>
@@ -706,22 +703,24 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 </figcaption>
               </figure>
 
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
-                <img
-                  src="/casados9.jpg"
-                  alt="Alma y Mauricio disfrutando de un atardecer juntos"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
-                  Entre atardeceres y promesas, agradecemos el amor que nos sostiene día tras día.
-                </figcaption>
-              </figure>
+              <div className="md:col-span-2 flex justify-center">
+                <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation w-full md:w-auto md:max-w-md">
+                  <img
+                    src="/casados9.jpg"
+                    alt="Alma y Mauricio disfrutando de un atardecer juntos"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
+                    Entre atardeceres y promesas, agradecemos el amor que nos sostiene día tras día.
+                  </figcaption>
+                </figure>
+              </div>
 
               <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2">
                 <img
                   src="/casados10.jpg"
                   alt="Alma y Mauricio celebrando su compromiso con familiares y amigos"
-                  className="w-full h-[320px] md:h-[400px] object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-[320px] md:h-[400px] object-cover object-center transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-8 py-6 text-white font-body text-base leading-relaxed">
                   Rodeados de quienes amamos, celebramos un amor que florece en cada nuevo comienzo.
@@ -759,7 +758,8 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             </h2>
             <div className="mx-auto max-w-3xl space-y-6">
               <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed">
-                ¡Queremos compartir este momento contigo! Ayúdanos confirmando antes del 6 de octubre de 2025.
+                ¡Queremos compartir este momento contigo! Ayúdanos confirmando antes del 10 de noviembre de 2025.
+                Agradecemos tu comprensión: no habrá acceso para niños.
               </p>
 
               <Card ref={formCardRef} className="mx-auto w-full max-w-[640px] gap-0 overflow-hidden border-invitation-border bg-invitation-surface shadow-invitation p-0 md:w-[640px]">
