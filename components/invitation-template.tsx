@@ -498,18 +498,18 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
         <section className="py-16 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6">
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation flex justify-center">
                 <img
                   src="/casados2.jpg"
                   alt="Alma y Mauricio compartiendo una sonrisa llena de alegría"
-                  className="w-full h-[420px] md:h-[540px] object-cover object-center transition-transform duration-500 hover:scale-105"
+                  className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                 />
               </figure>
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation flex justify-center">
                 <img
                   src="/casados3.jpg"
                   alt="Alma y Mauricio tomados de la mano en un paseo sereno"
-                  className="w-full h-[420px] md:h-[540px] object-cover object-center transition-transform duration-500 hover:scale-105"
+                  className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                 />
               </figure>
             </div>
@@ -542,19 +542,19 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 </p>
               </div>
             </Card>
-            <div className="mt-10 grid md:grid-cols-2 gap-6">
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+            <div className="mt-10 flex flex-col gap-6 items-center">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation flex justify-center">
                 <img
                   src="/casados4.jpg"
                   alt="Alma y Mauricio abrazados celebrando su unión"
-                  className="w-full h-[260px] md:h-[280px] object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                 />
               </figure>
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation flex justify-center">
                 <img
                   src="/casados5.jpg"
                   alt="Alma y Mauricio compartiendo un momento íntimo"
-                  className="w-full h-[260px] md:h-[280px] object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                 />
               </figure>
             </div>
@@ -645,11 +645,11 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             </h2>
 
             <Card className="p-4 md:p-6 bg-invitation-surface border-invitation-border shadow-invitation">
-              <div className="relative -mx-4 sm:-mx-8 md:mx-auto md:max-w-2xl">
+              <div className="flex justify-center">
                 <img
                   src="/itinerario.png"
                   alt="Itinerario del gran día de Alma Nelly y Mauricio"
-                  className="w-full h-auto rounded-[1.75rem] shadow-[0_18px_42px_rgba(24,24,24,0.08)] md:scale-100 scale-[1.18] origin-top transition-transform duration-500"
+                  className="w-auto h-auto max-w-full rounded-[1.75rem] shadow-[0_18px_42px_rgba(24,24,24,0.08)]"
                 />
               </div>
             </Card>
@@ -670,33 +670,33 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation flex justify-center">
                 <img
                   src="/casados6.jpg"
                   alt="Alma y Mauricio celebrando con alegría"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
                   Celebramos la dicha de unir nuestras vidas con quienes han sido parte de nuestra historia.
                 </figcaption>
               </figure>
 
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation flex justify-center">
                 <img
                   src="/casados7.jpg"
                   alt="Alma y Mauricio caminando hacia un nuevo comienzo"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
                   Caminamos de la mano hacia el futuro, guiados por la gracia y la esperanza que compartimos.
                 </figcaption>
               </figure>
 
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2 flex justify-center">
                 <img
                   src="/casados8.jpg"
                   alt="Alma y Mauricio compartiendo una sonrisa sincera"
-                  className="w-full h-[340px] md:h-[420px] object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/45 to-transparent px-8 py-6 text-white font-body text-base leading-relaxed">
                   Sonrisas que nacen del alma y se convierten en recuerdos eternos que alimentan nuestra historia.
@@ -704,11 +704,11 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
               </figure>
 
               <div className="md:col-span-2 flex justify-center">
-                <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation w-full md:w-auto md:max-w-md">
+                <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation">
                   <img
                     src="/casados9.jpg"
                     alt="Alma y Mauricio disfrutando de un atardecer juntos"
-                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                    className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                   />
                   <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-5 text-white font-body text-sm leading-relaxed">
                     Entre atardeceres y promesas, agradecemos el amor que nos sostiene día tras día.
@@ -716,11 +716,11 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 </figure>
               </div>
 
-              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2">
+              <figure className="relative overflow-hidden rounded-3xl border border-invitation-border shadow-invitation md:col-span-2 flex justify-center">
                 <img
                   src="/casados10.jpg"
                   alt="Alma y Mauricio celebrando su compromiso con familiares y amigos"
-                  className="w-full h-[320px] md:h-[400px] object-cover object-center transition-transform duration-500 hover:scale-105"
+                  className="w-auto h-auto max-w-full transition-transform duration-500 hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-8 py-6 text-white font-body text-base leading-relaxed">
                   Rodeados de quienes amamos, celebramos un amor que florece en cada nuevo comienzo.
@@ -803,13 +803,13 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-[0.3em] text-invitation-text mb-8">
               Vestimenta sugerida
             </h2>
-            <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation">
+            <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation text-center">
               <div className="space-y-8">
-                <div className="rounded-3xl border border-invitation-border/80 shadow-lg overflow-hidden bg-invitation-surface">
+                <div className="rounded-3xl border border-invitation-border/80 shadow-lg overflow-hidden bg-invitation-surface flex justify-center">
                   <img
                     src="/vestimenta.jpeg"
                     alt="Propuesta de vestimenta elegante para la boda de Alma y Mauricio"
-                    className="w-full h-[360px] md:h-[520px] max-h-[720px] object-contain object-center"
+                    className="w-auto h-auto max-w-full"
                   />
                 </div>
                 <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed">
