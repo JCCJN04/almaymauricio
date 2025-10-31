@@ -121,6 +121,56 @@ function RadiantBloomIcon({ className }: IconProps) {
   )
 }
 
+function EnvelopeIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      role="img"
+      aria-hidden="true"
+      className={className ? `${className} shrink-0` : "shrink-0"}
+    >
+      <rect
+        x="8"
+        y="16"
+        width="48"
+        height="32"
+        rx="6"
+        ry="6"
+        fill="currentColor"
+        fillOpacity="0.08"
+        stroke="currentColor"
+        strokeWidth="2.4"
+      />
+      <path
+        d="M10 20.5 32 36.5 54 20.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 44 24.5 32"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.7"
+      />
+      <path
+        d="M54 44 39.5 32"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.7"
+      />
+    </svg>
+  )
+}
+
 const PARENT_MEMBER_ICONS = {
   cross: OrnateCrossIcon,
   blossom: RadiantBloomIcon,
@@ -643,41 +693,69 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
           </div>
         </section>
 
+        {/* Envelope Section */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-[0.3em] text-invitation-text mb-6">
+              Regalos
+            </h2>
+            <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed max-w-2xl mx-auto">
+              Tu presencia es nuestro mejor regalo. Si deseas bendecirnos con un detalle, te agradecemos hacerlo en un sobre.
+            </p>
+            <div className="mt-10 flex flex-col items-center gap-6">
+              <span className="inline-flex h-28 w-28 items-center justify-center rounded-full border border-invitation-accent/35 bg-invitation-accent/12 shadow-[0_14px_38px_rgba(53,37,16,0.14)] text-invitation-accent">
+                <EnvelopeIcon className="h-16 w-16" />
+              </span>
+              <p className="font-body text-base md:text-lg text-invitation-accent-dark max-w-xl">
+                Gracias por ser parte de esta nueva etapa; cada gesto de cariño lo atesoramos con el corazón.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* RSVP Section */}
         <section className="py-16 px-6 bg-invitation-surface/70">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-[0.3em] text-invitation-text mb-8">
               Confirma tu asistencia
             </h2>
-            <Card className="p-10 bg-invitation-surface border-invitation-border shadow-invitation">
+            <div className="mx-auto max-w-3xl space-y-6">
               <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed">
-                ¡Queremos vivir este momento tan especial contigo!
-Por favor, confirma tu asistencia antes del 6 de octubre de 2025 para ayudarnos con los preparativos.
+                ¡Queremos compartir este momento contigo! Ayúdanos confirmando antes del 6 de octubre de 2025.
               </p>
-              <div className="mt-8 w-full">
-                <div className="relative w-full overflow-hidden rounded-[1.75rem] border border-invitation-border shadow-[0_18px_42px_rgba(24,24,24,0.12)]">
-                  <iframe
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSd8fFHEvViweRJXrWuPb158vZ7_z2DSDX9zTN9i0THMcc85Kg/viewform?embedded=true"
-                    title="Confirmación de asistencia"
-                    className="w-full h-[1288px]"
-                    allow="camera; microphone; geolocation"
-                  >
-                    Cargando…
-                  </iframe>
+
+              <Card className="mx-auto w-full max-w-[640px] gap-0 overflow-hidden border-invitation-border bg-invitation-surface shadow-invitation p-0 md:w-[640px]">
+                <div className="relative h-[520px] w-full overflow-hidden">
+                  <div className="h-full w-full overflow-y-auto scrollbar-none">
+                    <div className="relative h-[880px]">
+                      <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSd8fFHEvViweRJXrWuPb158vZ7_z2DSDX9zTN9i0THMcc85Kg/viewform?embedded=true"
+                        title="Confirmación de asistencia"
+                        className="absolute left-0 top-[-180px] h-[880px] w-full min-w-0"
+                        allow="camera; microphone; geolocation"
+                        scrolling="no"
+                      >
+                        Cargando…
+                      </iframe>
+                    </div>
+                  </div>
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-invitation-surface to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-invitation-surface to-transparent" />
                 </div>
-                <p className="font-body text-sm text-invitation-muted mt-4">
-                  Si prefieres abrirlo en una nueva ventana, puedes hacerlo
-                  <a
-                    className="text-invitation-accent hover:underline ml-1"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSd8fFHEvViweRJXrWuPb158vZ7_z2DSDX9zTN9i0THMcc85Kg/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    aquí.
-                  </a>
-                </p>
-              </div>
-            </Card>
+              </Card>
+
+              <p className="font-body text-sm text-invitation-muted">
+                Si prefieres abrirlo en una nueva ventana, puedes hacerlo
+                <a
+                  className="ml-1 text-invitation-accent hover:underline"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSd8fFHEvViweRJXrWuPb158vZ7_z2DSDX9zTN9i0THMcc85Kg/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  aquí.
+                </a>
+              </p>
+            </div>
           </div>
         </section>
 

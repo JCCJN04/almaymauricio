@@ -158,8 +158,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply overflow-x-hidden;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 
   /* Adding custom font classes */
@@ -174,6 +177,16 @@
   /* Custom shadow utility */
   .shadow-invitation {
     box-shadow: var(--shadow-invitation);
+  }
+
+  /* Utility to hide scrollbars while preserving scroll behavior */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }
 

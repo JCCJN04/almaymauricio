@@ -11,25 +11,20 @@ export function PersonalizationForm() {
   const [generatedLinks, setGeneratedLinks] = useState<Array<{ name: string; url: string }>>([])
 
   const addGuest = () => {
-    setGuests([...guests, ""])
+    setGuests((prev) => [...prev, ""])
   }
 
   const removeGuest = (index: number) => {
-    setGuests(guests.filter((_, i) => i !== index))
+    setGuests((prev) => prev.filter((_, i) => i !== index))
   }
 
   const updateGuest = (index: number, value: string) => {
-    const newGuests = [...guests]
-    newGuests[index] = value
-    setGuests(newGuests)
+    setGuests((prev) => prev.map((guest, i) => (i === index ? value : guest)))
   }
 
   const generateInvitations = () => {
-    const validGuests = guests.filter((g) => g.trim() !== "")
-    const links = validGuests.map((name) => ({
-      name,
-      url: `/invitacion/${encodeURIComponent(name)}`,
-    }))
+    const validGuests = guests.filter((guest) => guest.trim() !== "")
+    const links = validGuests.map((name) => ({ name, url: `/invitacion/${encodeURIComponent(name)}` }))
     setGeneratedLinks(links)
   }
 
@@ -39,47 +34,47 @@ export function PersonalizationForm() {
   }
 
   return (
-    <div className="space-y-8">
-      <Card className="p-8 bg-invitation-surface border-invitation-border shadow-invitation">
-        <h2 className="font-serif text-2xl mb-6 text-invitation-text">Lista de Invitados</h2>
+    <div className="w-full space-y-8">
+      <Card className="w-full gap-6 border-invitation-border bg-invitation-surface p-6 shadow-invitation sm:p-8">
+        <h2 className="font-serif text-2xl text-invitation-text">Lista de Invitados</h2>
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4">
           {guests.map((guest, index) => (
-            <div key={index} className="flex gap-3">
+            <div key={index} className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Input
                 value={guest}
-                onChange={(e) => updateGuest(index, e.target.value)}
+                onChange={(event) => updateGuest(index, event.target.value)}
                 placeholder="Nombre del invitado o familia"
-                className="flex-1 bg-white border-invitation-border focus:border-invitation-accent"
+                className="border-invitation-border bg-white focus:border-invitation-accent"
               />
               {guests.length > 1 && (
                 <Button
                   onClick={() => removeGuest(index)}
                   variant="outline"
                   size="icon"
-                  className="border-invitation-border hover:bg-destructive hover:text-white"
+                  className="border-invitation-border hover:bg-destructive hover:text-white self-end sm:self-auto"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="h-4 w-4" />
                 </Button>
               )}
             </div>
           ))}
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <Button
             onClick={addGuest}
             variant="outline"
-            className="flex-1 border-invitation-accent text-invitation-accent hover:bg-invitation-accent hover:text-invitation-surface bg-transparent"
+            className="w-full border-invitation-accent text-invitation-accent hover:bg-invitation-accent hover:text-invitation-surface bg-transparent sm:flex-1"
           >
-            <Plus className="w-4 h-4 mr-2" />
+            <Plus className="mr-2 h-4 w-4" />
             Agregar Invitado
           </Button>
 
           <Button
             onClick={generateInvitations}
-            disabled={guests.filter((g) => g.trim() !== "").length === 0}
-            className="flex-1 bg-invitation-accent hover:bg-invitation-accent-dark text-invitation-surface"
+            disabled={guests.every((guest) => guest.trim() === "")}
+            className="w-full bg-invitation-accent text-invitation-surface hover:bg-invitation-accent-dark sm:flex-1"
           >
             Generar Invitaciones
           </Button>
@@ -87,29 +82,29 @@ export function PersonalizationForm() {
       </Card>
 
       {generatedLinks.length > 0 && (
-        <Card className="p-8 bg-invitation-surface border-invitation-border shadow-invitation">
-          <h2 className="font-serif text-2xl mb-6 text-invitation-text">Invitaciones Generadas</h2>
+        <Card className="w-full gap-6 border-invitation-border bg-invitation-surface p-6 shadow-invitation sm:p-8">
+          <h2 className="font-serif text-2xl text-invitation-text">Invitaciones Generadas</h2>
 
           <div className="space-y-3">
             {generatedLinks.map((link, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between p-4 bg-invitation-bg rounded-lg border border-invitation-border"
+                className="flex flex-col gap-4 rounded-lg border border-invitation-border bg-invitation-bg p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-2"
               >
-                <div className="flex-1">
-                  <p className="font-body font-semibold text-invitation-text mb-1">{link.name}</p>
-                  <p className="font-body text-sm text-invitation-muted truncate">
+                <div className="w-full min-w-0 sm:flex-1">
+                  <p className="font-body font-semibold text-invitation-text">{link.name}</p>
+                  <p className="font-body text-sm text-invitation-muted break-words sm:truncate">
                     {window.location.origin}
                     {link.url}
                   </p>
                 </div>
 
-                <div className="flex gap-2 ml-4">
+                <div className="flex w-full gap-2 sm:w-auto sm:justify-end">
                   <Button
                     onClick={() => copyToClipboard(link.url)}
                     variant="outline"
                     size="sm"
-                    className="border-invitation-border hover:bg-invitation-accent hover:text-invitation-surface"
+                    className="w-full border-invitation-border hover:bg-invitation-accent hover:text-invitation-surface sm:w-auto"
                   >
                     Copiar
                   </Button>
@@ -117,10 +112,10 @@ export function PersonalizationForm() {
                   <Button
                     asChild
                     size="sm"
-                    className="bg-invitation-accent hover:bg-invitation-accent-dark text-invitation-surface"
+                    className="w-full bg-invitation-accent text-invitation-surface hover:bg-invitation-accent-dark sm:w-auto"
                   >
                     <a href={link.url} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>
                 </div>
@@ -128,7 +123,7 @@ export function PersonalizationForm() {
             ))}
           </div>
 
-          <div className="mt-6 p-4 bg-invitation-accent/10 rounded-lg border border-invitation-accent/30">
+          <div className="rounded-lg border border-invitation-accent/30 bg-invitation-accent/10 p-4">
             <p className="font-body text-sm text-invitation-muted">
               <strong className="text-invitation-text">Tip:</strong> Puedes copiar los enlaces y compartirlos por
               WhatsApp, email o redes sociales. Cada invitado verá su nombre personalizado en la invitación.
