@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo, useId } from "react"
+import { useState, useEffect, useMemo, useId, useRef } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -246,6 +246,44 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
       ],
     },
   ]
+
+  const formCardRef = useRef<HTMLDivElement>(null)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const lastScrollPositionRef = useRef(0)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current
+    if (!scrollContainer) return
+
+    const handleScroll = () => {
+      const currentScroll = scrollContainer.scrollTop
+      
+      // Limpiar timeout anterior
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+
+      // Si el usuario ha scrolleado hacia abajo significativamente
+      if (currentScroll > 200) {
+        // Esperar 2 segundos después de que deje de scrollear
+        scrollTimeoutRef.current = setTimeout(() => {
+          // Hacer scroll automático hacia arriba para mostrar el mensaje de confirmación
+          scrollContainer.scrollTo({ top: 0, behavior: "smooth" })
+        }, 2000)
+      }
+      
+      lastScrollPositionRef.current = currentScroll
+    }
+
+    scrollContainer.addEventListener("scroll", handleScroll)
+    return () => {
+      scrollContainer.removeEventListener("scroll", handleScroll)
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-invitation-bg relative">
@@ -724,14 +762,14 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
                 ¡Queremos compartir este momento contigo! Ayúdanos confirmando antes del 6 de octubre de 2025.
               </p>
 
-              <Card className="mx-auto w-full max-w-[640px] gap-0 overflow-hidden border-invitation-border bg-invitation-surface shadow-invitation p-0 md:w-[640px]">
+              <Card ref={formCardRef} className="mx-auto w-full max-w-[640px] gap-0 overflow-hidden border-invitation-border bg-invitation-surface shadow-invitation p-0 md:w-[640px]">
                 <div className="relative h-[520px] w-full overflow-hidden">
-                  <div className="h-full w-full overflow-y-auto scrollbar-none">
+                  <div ref={scrollContainerRef} className="h-full w-full overflow-y-auto scrollbar-none">
                     <div className="relative h-[880px]">
                       <iframe
                         src="https://docs.google.com/forms/d/e/1FAIpQLSd8fFHEvViweRJXrWuPb158vZ7_z2DSDX9zTN9i0THMcc85Kg/viewform?embedded=true"
                         title="Confirmación de asistencia"
-                        className="absolute left-0 top-[-180px] h-[880px] w-full min-w-0"
+                        className="absolute left-0 top-0 h-[880px] w-full min-w-0"
                         allow="camera; microphone; geolocation"
                         scrolling="no"
                       >
