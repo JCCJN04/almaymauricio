@@ -50,8 +50,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-gonzalez-plata": {
-    name: "Familia González Plata",
+  "oscar-gonzalez-plata-y-familia": {
+    name: "Oscar González Plata y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -86,8 +86,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-gonzalez-rodriguez": {
-    name: "Familia González Rodriguez",
+  "david-eduardo-gonzalez-rodriguez-y-familia": {
+    name: "David Eduardo González Rodriguez y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 3 personas",
@@ -113,8 +113,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-mora-gonzalez": {
-    name: "Familia Mora González",
+  "monica-nacarena-mora-gonzalez-y-familia": {
+    name: "Monica Nacarena Mora González y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -167,8 +167,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-castillo-recio": {
-    name: "Familia Castillo Recio",
+  "claudia-castillo-recio-y-familia": {
+    name: "Claudia Castillo Recio y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -176,8 +176,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-gonzalez-castillo": {
-    name: "Familia González Castillo",
+  "evelyn-estefania-gonzalez-castillo-y-familia": {
+    name: "Evelyn Estefania González Castillo y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 3 personas",
@@ -203,8 +203,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-gonzalez-martinez": {
-    name: "Familia González Martinez",
+  "salma-gonzalez-martinez-y-familia": {
+    name: "Salma González Martinez y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -221,8 +221,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-gonzalez-ramirez": {
-    name: "Familia González Ramírez",
+  "omarin-roberto-gonzalez-ramirez-jr-y-familia": {
+    name: "Omarin Roberto González Ramírez Jr y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -248,8 +248,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-perez-juarez": {
-    name: "Familia Pérez Juárez",
+  "ofelia-perez-juarez-y-familia": {
+    name: "Ofelia Pérez Juárez y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -257,8 +257,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-graciano": {
-    name: "Familia Graciano",
+  "julio-cesar-graciano-y-familia": {
+    name: "Julio Cesar Graciano y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -266,8 +266,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-perez-barbosa": {
-    name: "Familia Pérez Barbosa",
+  "carlos-perez-barbosa-y-familia": {
+    name: "Carlos Pérez Barbosa y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -302,8 +302,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-ponce-quijano": {
-    name: "Familia Ponce Quijano",
+  "salma-azaria-ponce-quijano-y-familia": {
+    name: "Salma Azaria Ponce Quijano y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -311,8 +311,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-aguilar-guevara": {
-    name: "Familia Aguilar Guevara",
+  "nohemi-aguilar-guevara-y-familia": {
+    name: "Nohemi Aguilar Guevara y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -320,8 +320,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-guevara-amaro": {
-    name: "Familia Guevara Amaro",
+  "esperanza-guevara-amaro-y-familia": {
+    name: "Esperanza Guevara Amaro y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -356,8 +356,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-reyna-palomo": {
-    name: "Familia Reyna Palomo",
+  "danna-paola-reyna-palomo-y-familia": {
+    name: "Danna Paola Reyna Palomo y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -383,8 +383,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-zurita": {
-    name: "Familia Zurita",
+  "victor-manuel-zurita-y-familia": {
+    name: "Victor Manuel Zurita y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -392,8 +392,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-dominguez-hernandez": {
-    name: "Familia Domínguez Hernández",
+  "ing-adolfo-dominguez-hernandez-y-familia": {
+    name: "Ing. Adolfo Domínguez Hernández y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -401,8 +401,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-avila": {
-    name: "Familia Ávila",
+  "arq-francisco-avila-y-familia": {
+    name: "Arq. Francisco Ávila y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -410,8 +410,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-solis": {
-    name: "Familia Solís",
+  "ivonne-solis-y-familia": {
+    name: "Ivonne Solís y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -419,8 +419,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-ayala": {
-    name: "Familia Ayala",
+  "ing-jorge-ayala-y-familia": {
+    name: "Ing. Jorge Ayala y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -428,8 +428,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "yaneth-y-familia": {
-    name: "Yaneth y Familia",
+  "karen-yaneth-y-familia": {
+    name: "Karen Yaneth y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -437,8 +437,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-martinez-briones": {
-    name: "Familia Martínez Briones",
+  "abril-odaliz-martinez-briones-y-familia": {
+    name: "Abril Odaliz Martínez Briones y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
@@ -446,8 +446,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-espinosa": {
-    name: "Familia Espinosa",
+  "kasandra-espinosa-y-familia": {
+    name: "Kasandra Espinosa y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -455,8 +455,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-gutierrez-castillo": {
-    name: "Familia Gutiérrez Castillo",
+  "felipe-de-jesus-gutierrez-castillo-y-familia": {
+    name: "Felipe de Jesus Gutiérrez Castillo y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 3 personas",
@@ -473,8 +473,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-serrano": {
-    name: "Familia Serrano",
+  "annie-serrano-y-familia": {
+    name: "Annie Serrano y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 5 personas",
@@ -518,8 +518,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-lopez-garza": {
-    name: "Familia López Garza",
+  "lic-monica-lopez-garza-y-familia": {
+    name: "Lic. Monica López Garza y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 4 personas",
@@ -527,8 +527,8 @@ const GUEST_PROFILES: Record<string, GuestProfile> = {
       "Contacto para dudas: Alma 81 1044 3309",
     ],
   },
-  "familia-villicana": {
-    name: "Familia Villicaña",
+  "arq-jesus-villicana-y-familia": {
+    name: "Arq. Jesús Villicaña y Familia",
     message: "Les reservamos un lugar muy especial para celebrar juntos. Por favor confirma tu asistencia a la brevedad.",
     details: [
       "Pases asignados: 2 personas",
