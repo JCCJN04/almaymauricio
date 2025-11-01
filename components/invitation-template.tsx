@@ -759,7 +759,6 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
             <div className="mx-auto max-w-3xl space-y-6">
               <p className="font-body text-lg md:text-xl text-invitation-muted leading-relaxed">
                 ¡Queremos compartir este momento contigo! Ayúdanos confirmando antes del 10 de noviembre de 2025.
-                Agradecemos tu comprensión: No Niños.
               </p>
 
               <Card ref={formCardRef} className="mx-auto w-full max-w-[640px] gap-0 overflow-hidden border-invitation-border bg-invitation-surface shadow-invitation p-0 md:w-[640px]">
