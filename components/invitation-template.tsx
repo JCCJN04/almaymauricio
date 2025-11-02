@@ -343,8 +343,28 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
           </p>
         </div>
 
-        {/* Countdown */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10">
+        {/* Event Date & Countdown */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4">
+          {/* Fecha del Evento */}
+          <div className="flex items-center gap-3 md:gap-4">
+            <p className="font-serif text-white/90 text-lg md:text-xl uppercase tracking-[0.3em]">
+              Sábado
+            </p>
+            <span className="w-px h-8 bg-white/30" />
+            <p className="font-serif text-white text-3xl md:text-4xl tracking-[0.15em] font-light">
+              22
+            </p>
+            <span className="w-px h-8 bg-white/30" />
+            <p className="font-serif text-white/90 text-lg md:text-xl uppercase tracking-[0.25em]">
+              Noviembre
+            </p>
+            <span className="w-px h-8 bg-white/30" />
+            <p className="font-serif text-white/80 text-2xl md:text-3xl tracking-[0.2em]">
+              2025
+            </p>
+          </div>
+
+          {/* Countdown */}
           <div
             className="flex gap-6 px-8 py-4 bg-black/40 backdrop-blur-md border border-white/30 rounded-full"
             role="timer"
