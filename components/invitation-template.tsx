@@ -309,7 +309,7 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
       />
 
       {/* Hero Section */}
-      <header className="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-invitation-border">
+      <header className="relative min-h-[100vh] flex items-center justify-center overflow-hidden border-b border-invitation-border">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img src="/casados1.jpg" alt="Alma y Mauricio celebrando su amor" className="w-full h-full object-cover object-center" />
@@ -317,56 +317,56 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-6 max-w-3xl">
-          <p className="font-body text-invitation-surface/85 uppercase tracking-[0.46em] text-xs md:text-sm mb-6 flex items-center justify-center gap-6">
-            <span className="w-12 h-px bg-invitation-surface/60" />
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-3xl pt-8 sm:pt-0">
+          <p className="font-body text-invitation-surface/85 uppercase tracking-[0.3em] sm:tracking-[0.46em] text-xs sm:text-sm md:text-sm mb-5 sm:mb-6 flex items-center justify-center gap-4 sm:gap-6">
+            <span className="w-10 sm:w-12 h-px bg-invitation-surface/60" />
             Nuestra Boda
-            <span className="w-12 h-px bg-invitation-surface/60" />
+            <span className="w-10 sm:w-12 h-px bg-invitation-surface/60" />
           </p>
 
-          <div className="space-y-2 mb-6">
-            <h1 className="font-serif text-5xl md:text-7xl text-white uppercase tracking-[0.24em] leading-tight">
+          <div className="space-y-2 sm:space-y-2 mb-5 sm:mb-6">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl text-white uppercase tracking-[0.18em] sm:tracking-[0.24em] leading-tight">
               Alma
             </h1>
-            <div className="flex items-center justify-center gap-6 my-4">
-              <span className="w-24 md:w-32 h-px bg-invitation-surface/55" />
-              <span className="font-serif text-4xl md:text-5xl text-invitation-accent">&</span>
-              <span className="w-24 md:w-32 h-px bg-invitation-surface/55" />
+            <div className="flex items-center justify-center gap-5 sm:gap-6 my-3 sm:my-4">
+              <span className="w-20 sm:w-24 md:w-32 h-px bg-invitation-surface/55" />
+              <span className="font-serif text-4xl sm:text-5xl md:text-5xl text-invitation-accent">&</span>
+              <span className="w-20 sm:w-24 md:w-32 h-px bg-invitation-surface/55" />
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl text-white uppercase tracking-[0.24em] leading-tight">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl text-white uppercase tracking-[0.18em] sm:tracking-[0.24em] leading-tight">
               Mauricio
             </h1>
           </div>
 
-          <p className="font-body text-invitation-surface/82 text-base md:text-lg max-w-md mx-auto">
+          <p className="font-body text-invitation-surface/82 text-base sm:text-base md:text-lg max-w-md mx-auto px-4">
             Con gozo compartimos la dicha de nuestra unión ante Dios.
           </p>
         </div>
 
         {/* Event Date & Countdown */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4">
+        <div className="absolute bottom-6 sm:bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 sm:gap-4 w-full px-4">
           {/* Fecha del Evento */}
-          <div className="flex items-center gap-3 md:gap-4">
-            <p className="font-serif text-white/90 text-lg md:text-xl uppercase tracking-[0.3em]">
+          <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4 flex-wrap justify-center">
+            <p className="font-serif text-white/90 text-base sm:text-lg md:text-xl uppercase tracking-[0.2em] sm:tracking-[0.3em]">
               Sábado
             </p>
-            <span className="w-px h-8 bg-white/30" />
-            <p className="font-serif text-white text-3xl md:text-4xl tracking-[0.15em] font-light">
+            <span className="w-px h-7 sm:h-8 bg-white/30" />
+            <p className="font-serif text-white text-3xl sm:text-3xl md:text-4xl tracking-[0.15em] font-light">
               22
             </p>
-            <span className="w-px h-8 bg-white/30" />
-            <p className="font-serif text-white/90 text-lg md:text-xl uppercase tracking-[0.25em]">
+            <span className="w-px h-7 sm:h-8 bg-white/30" />
+            <p className="font-serif text-white/90 text-base sm:text-lg md:text-xl uppercase tracking-[0.18em] sm:tracking-[0.25em]">
               Noviembre
             </p>
-            <span className="w-px h-8 bg-white/30" />
-            <p className="font-serif text-white/80 text-2xl md:text-3xl tracking-[0.2em]">
+            <span className="w-px h-7 sm:h-8 bg-white/30" />
+            <p className="font-serif text-white/80 text-2xl sm:text-2xl md:text-3xl tracking-[0.2em]">
               2025
             </p>
           </div>
 
           {/* Countdown */}
           <div
-            className="flex gap-6 px-8 py-4 bg-black/40 backdrop-blur-md border border-white/30 rounded-full"
+            className="flex gap-3 sm:gap-4 md:gap-6 px-5 sm:px-6 md:px-8 py-3 sm:py-4 bg-black/40 backdrop-blur-md border border-white/30 rounded-full max-w-full overflow-x-auto"
             role="timer"
             aria-live="polite"
             aria-label="Cuenta regresiva para la boda"
@@ -377,14 +377,14 @@ export function InvitationTemplate({ guestName, guestMessage, guestDetails }: In
               { label: "Minutos", value: countdown.minutes },
               { label: "Segundos", value: countdown.seconds },
             ].map((item, index) => (
-              <div key={item.label} className="relative flex flex-col items-center min-w-[70px]">
+              <div key={item.label} className="relative flex flex-col items-center min-w-[56px] sm:min-w-[60px] md:min-w-[70px]">
                 {index > 0 && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-px h-12 bg-white/28" />
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[6px] sm:-translate-x-2 md:-translate-x-3 w-px h-9 sm:h-10 md:h-12 bg-white/28" />
                 )}
-                <span className="font-serif text-3xl md:text-4xl text-white tracking-wider">
+                <span className="font-serif text-3xl sm:text-3xl md:text-4xl text-white tracking-wider">
                   {String(item.value).padStart(2, "0")}
                 </span>
-                <span className="font-body text-[0.65rem] uppercase tracking-[0.32em] text-white/78 mt-1">
+                <span className="font-body text-[0.6rem] sm:text-[0.6rem] md:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.32em] text-white/78 mt-0.5 sm:mt-1">
                   {item.label}
                 </span>
               </div>
